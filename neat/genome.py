@@ -111,6 +111,9 @@ class DefaultGenomeConfig(object):
             self.node_indexer = count(max(list(node_dict)) + 1)
 
         new_id = next(self.node_indexer)
+        if new_id in node_dict:
+            self.node_indexer = count(max(list(node_dict)) + 1)
+            new_id = next(self.node_indexer)
 
         assert new_id not in node_dict
 
